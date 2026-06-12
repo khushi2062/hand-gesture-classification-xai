@@ -1,0 +1,70 @@
+#load_data
+shape of emg: (130267, 16)
+shape of labels: (130267,)
+shape of repetition: (130267,)
+Unique gestures: [ 0  1  2  3  4  5  6  7  8  9 10 11 12]
+Unique repetitions: [0 1 2 3 4 5 6]
+Recording duration: 651.3 seconds
+Gesture 1 starts at sample: 1003
+Gesture 1 starts at time: 5.01 seconds
+
+#preprocessing
+After gesture selection:
+EMG shape:    (17809, 16)
+Labels shape: (17809,)
+Gestures kept: [1 2 6 7] 
+
+#bandpass filter 
+Bandpass filter complete
+  Low cutoff:  0.2000
+  High cutoff: 0.9900
+
+#normalization 
+after normalization :
+After normalization:
+Mean per channel (should be ~0): [-0. -0.  0.  0.  0.  0.  0. -0.  0.  0. -0. -0.  0. -0.  0. -0.]
+Std per channel  (should be ~1): [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+
+Window size: 50 samples (250ms)
+Step size:   25 samples (125ms)
+
+Windowing complete:
+Windows shape:     (710, 50, 16)
+Labels shape:      (710,)
+Repetitions shape: (710,)
+
+Samples per gesture after windowing:
+  Gesture 1: 202 windows
+  Gesture 2: 154 windows
+  Gesture 6: 178 windows
+  Gesture 7: 176 windows
+
+#feature extraction 
+Feature matrix shape: (710, 80)
+Labels shape:         (710,)
+
+#Classifier 
+Training for 100 epochs...
+--------------------------------------------------
+Epoch  10/100 | Train Loss: 0.5001 | Train Acc: 0.8479 | Test Loss: 0.7856 | Test Acc: 0.5983
+Epoch  20/100 | Train Loss: 0.2989 | Train Acc: 0.8958 | Test Loss: 0.7062 | Test Acc: 0.6594
+Epoch  30/100 | Train Loss: 0.2450 | Train Acc: 0.9208 | Test Loss: 0.6576 | Test Acc: 0.6769
+Epoch  40/100 | Train Loss: 0.1784 | Train Acc: 0.9375 | Test Loss: 0.7514 | Test Acc: 0.6550
+Epoch  50/100 | Train Loss: 0.1796 | Train Acc: 0.9396 | Test Loss: 0.8108 | Test Acc: 0.6725
+Epoch  60/100 | Train Loss: 0.1377 | Train Acc: 0.9583 | Test Loss: 0.7708 | Test Acc: 0.6769
+Epoch  70/100 | Train Loss: 0.1127 | Train Acc: 0.9708 | Test Loss: 0.8199 | Test Acc: 0.6725
+Epoch  80/100 | Train Loss: 0.1787 | Train Acc: 0.9333 | Test Loss: 0.8340 | Test Acc: 0.6769
+Epoch  90/100 | Train Loss: 0.1601 | Train Acc: 0.9500 | Test Loss: 0.8595 | Test Acc: 0.6681
+Epoch 100/100 | Train Loss: 0.1833 | Train Acc: 0.9292 | Test Loss: 0.8436 | Test Acc: 0.6769
+
+Classification Report:
+                 precision    recall  f1-score   support
+
+  index flexion       0.65      0.23      0.34        74
+   ring flexion       0.40      0.84      0.54        45
+index extension       0.98      0.86      0.91        56
+wrist extension       0.90      0.96      0.93        54
+
+       accuracy                           0.68       229
+      macro avg       0.73      0.72      0.68       229
+   weighted avg       0.74      0.68      0.66       229
