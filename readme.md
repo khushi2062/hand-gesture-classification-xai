@@ -4,6 +4,7 @@ A complete machine learning pipeline for classifying hand gestures
 from surface EMG signals recorded from forearm electrodes. Built on
 the NinaPro DB5 dataset with SHAP and LIME explainability — explaining not just what the model predicted, but why.
 
+![Dashboard Demo](dashboarddemo.gif)
 
 
 ## What this project does
